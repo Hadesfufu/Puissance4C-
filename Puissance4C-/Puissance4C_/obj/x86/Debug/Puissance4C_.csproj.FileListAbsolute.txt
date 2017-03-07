@@ -1,0 +1,9 @@
+c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Puissance4C_.exe
+c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Puissance4C_.pdb
+c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\obj\x86\Debug\Puissance4C_.csprojResolveAssemblyReference.cache
+c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\obj\x86\Debug\Puissance4C_.exe
+c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\obj\x86\Debug\Puissance4C_.pdb
+c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Content\cadre.xnb
+c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Content\jaune.xnb
+c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Content\rouge.xnb
