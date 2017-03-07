@@ -19,6 +19,18 @@ namespace Puissance4C_
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        ObjetPuissance4 cadre;
+        ObjetPuissance4 pionjaune;
+        ObjetPuissance4 pionrouge;
+
+        int VX, VY;
+        int currentSelectedColumn;
+        int player1, player2, currentPlayer;
+
+
+        int[,] map;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -33,7 +45,28 @@ namespace Puissance4C_
         /// </summary>
         protected override void Initialize()
         {
+            currentSelectedColumn = 0;
+            this.IsMouseVisible = true;
             // TODO: Add your initialization logic here
+            graphics.PreferredBackBufferHeight = 700;
+            graphics.PreferredBackBufferWidth = 700;
+            graphics.ApplyChanges();
+
+            VX = 7;
+            VY = 6;
+
+            player1 = 1;
+            player2 = 2;
+            currentPlayer = 1;
+
+            map = new int[6, 7]{
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0}
+            };
 
             base.Initialize();
         }
@@ -46,6 +79,12 @@ namespace Puissance4C_
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            cadre = new ObjetPuissance4(Content.Load<Texture2D>("cadre"), new Vector2(0f, 0f), new Vector2(100f, 100f));
+            pionjaune = new ObjetPuissance4(Content.Load<Texture2D>("jaune"), new Vector2(0f, 0f), new Vector2(100f, 100f));
+            pionrouge = new ObjetPuissance4(Content.Load<Texture2D>("rouge"), new Vector2(0f, 0f), new Vector2(100f, 100f));
+
+
 
             // TODO: use this.Content to load your game content here
         }
@@ -69,10 +108,46 @@ namespace Puissance4C_
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+            KeyboardState keyboard = Keyboard.GetState();
+            if (keyboard.IsKeyDown(Keys.Right))
+            {
+                if (isDirectionOk(1))
+                {
+                    currentSelectedColumn++;
+                }
+            }
+            else if (keyboard.IsKeyDown(Keys.Left))
+            {
+                if (isDirectionOk(-1))
+                {
+                    currentSelectedColumn--;
+                }
+            }
+            else if (keyboard.IsKeyDown(Keys.Down))
+            {
+                bool done = false;
+                for (int x = 1; x < map.GetUpperBound(0) + 1 && !done; x++)
+                {
+                    if (map[x, currentSelectedColumn] != 0 || x == map.GetUpperBound(0))
+                    {
+                        map[x-1, currentSelectedColumn] = currentPlayer;
+                        done = true; ;
+                    }
+                }
 
+                currentPlayer = 3 - currentPlayer;
+            }
+
+            Console.WriteLine(currentSelectedColumn);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
+        }
+
+
+        private bool isDirectionOk(int i)
+        {
+            return (currentSelectedColumn + i >= 0 && currentSelectedColumn + i < VX);
         }
 
         /// <summary>
@@ -81,11 +156,44 @@ namespace Puissance4C_
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
+
+            spriteBatch.Begin();
 
             // TODO: Add your drawing code here
+            int offsetX = 0;
+            int offsetY = 100;
 
+            Vector2 pos = new Vector2(0, 0);
+            for (int x = 0; x < map.GetUpperBound(0)+1; x++)
+            {
+                for (int y = 0; y < map.GetUpperBound(1)+1; y++)
+                {
+                    pos.X = offsetX + y * 100;
+                    pos.Y = offsetY + x * 100;
+                    if (map[x, y] == 0)
+                    {
+                        spriteBatch.Draw(cadre.Texture, pos, Color.White);
+                    }
+                    else if(map[x, y] == 1){
+                        spriteBatch.Draw(pionjaune.Texture, pos, Color.White);
+                    }
+                    else{
+                        spriteBatch.Draw(pionrouge.Texture, pos, Color.White);
+                    }
+                    
+                }
+            }
+            pos.X = currentSelectedColumn * 100;
+            pos.Y = 0;
+            if(currentPlayer == 1)
+                spriteBatch.Draw(pionjaune.Texture , pos, Color.White);
+            else
+                spriteBatch.Draw(pionrouge.Texture , pos, Color.White);
+
+            spriteBatch.End();
             base.Draw(gameTime);
+
         }
     }
 }
