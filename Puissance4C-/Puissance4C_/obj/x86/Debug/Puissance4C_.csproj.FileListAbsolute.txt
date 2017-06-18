@@ -7,3 +7,12 @@ c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-
 c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Content\cadre.xnb
 c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Content\jaune.xnb
 c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Content\rouge.xnb
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Content\cadre.xnb
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Content\jaune.xnb
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Content\rouge.xnb
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Puissance4C_.exe
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_\bin\x86\Debug\Puissance4C_.pdb
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_\obj\x86\Debug\Puissance4C_.csprojResolveAssemblyReference.cache
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_\obj\x86\Debug\Puissance4C_.exe
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_\obj\x86\Debug\Puissance4C_.pdb

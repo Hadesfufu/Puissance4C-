@@ -52,6 +52,8 @@ namespace Puissance4C_
             graphics.PreferredBackBufferWidth = 700;
             graphics.ApplyChanges();
 
+            this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 10.0f);
+
             VX = 7;
             VY = 6;
 
@@ -131,7 +133,7 @@ namespace Puissance4C_
                     if (map[x, currentSelectedColumn] != 0 || x == map.GetUpperBound(0))
                     {
                         map[x-1, currentSelectedColumn] = currentPlayer;
-                        done = true; ;
+                        done = true;
                     }
                 }
 
@@ -148,6 +150,86 @@ namespace Puissance4C_
         private bool isDirectionOk(int i)
         {
             return (currentSelectedColumn + i >= 0 && currentSelectedColumn + i < VX);
+        }
+
+        public Boolean isGameWon()
+        {
+            for (int ligne = 1; ligne < VX; ligne++)
+            {
+                // Vérifie les horizontales ( - )
+                if (cherche4alignes(0, ligne, 1, 0))
+                {
+                    return true;
+                }
+                // Première diagonale ( \ ) inférieur
+                if (cherche4alignes(0, ligne, 1, 1))
+                {
+                    return true;
+                }
+                // Deuxième diagonale ( / ) inférieur
+                if (cherche4alignes(VY - 1, ligne, -1, 1))
+                {
+                    return true;
+                }
+            }
+
+            for (int col = 0; col < VY; col++)
+            {
+                // Vérifie les verticales ( ¦ )
+                if (cherche4alignes(col, 1, 0, 1))
+                {
+                    return true;
+                }
+                // Première diagonale ( / ) supérieur
+                if (cherche4alignes(col, 1, -1, 1))
+                {
+                    return true;
+                }
+                // Deuxième diagonale ( \ ) supérieur
+                if (cherche4alignes(col, 1, 1, 1))
+                {
+                    return true;
+                }
+            }
+            // On n'a rien trouvé
+            return false;
+        }
+
+        private Boolean cherche4alignes(int oCol, int oLigne, int dCol, int dLigne)
+        {
+            int couleur = 0;
+            int compteur = 0;
+
+            int curCol = oCol;
+            int curRow = oLigne;
+
+            while ((curCol >= 0) && (curCol < VY) && (curRow >= 1) && (curRow < VX))
+            {
+                if (map[curRow, curCol] != couleur)
+                {
+                    // Si la couleur change, on réinitialise le compteur
+                    couleur = map[curRow, curCol];
+                    compteur = 1;
+                }
+                else
+                {
+                    // Sinon on l'incrémente
+                    compteur++;
+                }
+
+                // On sort lorsque le compteur atteint 4
+                if ((couleur != 0) && (compteur == 4))
+                {
+                    return true;
+                }
+
+                // On passe à l'itération suivante
+                curCol += dCol;
+                curRow += dLigne;
+            }
+
+            // Aucun alignement n'a été trouvé
+            return false;
         }
 
         /// <summary>

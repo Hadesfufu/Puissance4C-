@@ -1,1 +1,2 @@
 c:\users\epulapp\Documents\Visual Studio 2013\Projects\Puissance4C-\Puissance4C-\Puissance4C_Content\obj\x86\Debug\Puissance4C_Content.contentprojResolveAssemblyReference.cache
+C:\Users\Epulapp\Source\Repos\Puissance4C-\Puissance4C-\Puissance4C_Content\obj\x86\Debug\Puissance4C_Content.contentprojResolveAssemblyReference.cache
