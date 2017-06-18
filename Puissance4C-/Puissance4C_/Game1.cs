@@ -128,19 +128,21 @@ namespace Puissance4C_
             else if (keyboard.IsKeyDown(Keys.Down))
             {
                 bool done = false;
-                for (int x = 1; x < map.GetUpperBound(0) + 1 && !done; x++)
+                for (int x = 1; x < map.GetUpperBound(0) + 2 && !done; x++)
                 {
-                    if (map[x, currentSelectedColumn] != 0 || x == map.GetUpperBound(0))
+                    if (x == map.GetUpperBound(0) + 1 || map[x, currentSelectedColumn] != 0)
                     {
                         map[x-1, currentSelectedColumn] = currentPlayer;
                         done = true;
+                        Console.WriteLine(currentSelectedColumn);
+                        Console.WriteLine(x);
+                        Console.WriteLine(map.GetUpperBound(0));
                     }
                 }
 
                 currentPlayer = 3 - currentPlayer;
             }
 
-            Console.WriteLine(currentSelectedColumn);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
